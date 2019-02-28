@@ -25,10 +25,8 @@ Syntax highlighted code block
 
 
 ```
-![Image1](https://github.com/SanaAmri/ArgoProject/blob/master/test.jpg)
-<img src="test.png" alt="hi" class="inline"/>
+![Image1](https://github.com/SanaAmri/ArgoProject/blob/master/Images/test.jpg)
 
-![Image2](file:///home/amrisana/Bureau/test.jpg)
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
