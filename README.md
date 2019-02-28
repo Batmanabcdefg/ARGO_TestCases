@@ -1,6 +1,6 @@
 ## Argo Project
 
-You can use the [editor on GitHub](https://github.com/SanaAmri/ArgoProject/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+You can access to all the codes and the plots [Here](https://github.com/SanaAmri/ArgoProject) 
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
