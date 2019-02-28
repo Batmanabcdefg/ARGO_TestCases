@@ -25,8 +25,9 @@ Syntax highlighted code block
 
 
 ```
-![Image1](https://github.com/SanaAmri/ArgoProject/blob/master/Images/test.jpg)
-![Image2](https://drive.google.com/file/d/1F23GeE26znTQQ1S_qsn6WrKdl3jbgb-H/view?usp=sharing)
+
+![test](https://user-images.githubusercontent.com/40390340/53585899-48d43000-3b87-11e9-888c-e9fcf2827f6b.jpg)
+
 ![Formule1](https://latex.codecogs.com/gif.latex?%5Cintop_%7BR%7Df%28x%29dx%3D%5Cfrac%7Ba%7D%7Bb%7D%3D%5Csum)
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
