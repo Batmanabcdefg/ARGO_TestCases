@@ -1,9 +1,9 @@
 ![cenaero-logo](https://user-images.githubusercontent.com/40390340/53699067-a1eccf80-3de4-11e9-8192-076322c87125.jpg)
 ## Tests on the CFD solver Argo 
 
-Link for the implemented codes [Here](https://github.com/SanaAmri/ArgoProject/Codes) 
+Link for the implemented codes [Here](https://github.com/SanaAmri/ARGO_TestCases/tree/master/Codes) 
 
-Link for the plots and schemes [Here](https://github.com/SanaAmri/ArgoProject/Images) 
+Link for the plots and schemes [Here](https://github.com/SanaAmri/ARGO_TestCases/tree/master/Images) 
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
