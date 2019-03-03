@@ -1,5 +1,5 @@
 ![cenaero-logo](https://user-images.githubusercontent.com/40390340/53699067-a1eccf80-3de4-11e9-8192-076322c87125.jpg)
-## Argo Project
+## Tests on the CFD solver Argo 
 
 You can access to all the codes and the plots [Here](https://github.com/SanaAmri/ArgoProject) 
 
