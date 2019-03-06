@@ -70,13 +70,12 @@ bool PerfectGas::computeTestHeatFlux(const DGMatrix& sol,
        // UR(energyIndex) = p / GM1  - rho * fEk;
         break;
 
+ 
+ 
+### In Argo/DGLib/DGLib/conservationLaw.hh (don't forget to declare the function computeTestHeatFlux)
 // _______________________________________________________________________________ 
-// **In the function PerfectGas::addStateFunctionTags(), add**:
- gradientFunctionTag["TestHeatFlux"]        =std::make_pair(TESTHEATFLUX,VECTOR);
- 
- 
-### In Argo/DGLib/DGLib/conservationLaw.hh
-
+// **Add**:
+virtual bool computeTestHeatFlux(const DGMatrix&,const DGMatrix*,const DGMatrix&,double,const DGMatrixArray&,DGMatrix&) const;
 ```
 
 
