@@ -4,10 +4,10 @@ Knowing that I am testing the effect of the DG-BR2 method on the exact **same me
 
 Hope it'll be usefull for the next VKI users!
 
-### ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)Modif 1 : Adding the calculation of the heat flux  `#f03c15`
-### In Argo/DGLib/DGLib/conservationLaw.cc
+### Modif 1 : Adding the calculation of the heat flux 
 
 ```markdown
+### In Argo/DGLib/DGLib/conservationLaw.cc
 // _______________________________________________________________________________ 
 // **In function PerfectGas::addStateFunctionTags() add**:
 
@@ -53,12 +53,36 @@ bool PerfectGas::computeTestHeatFlux(const DGMatrix& sol,
   }
   return true;
 }
+// _______________________________________________________________________________ 
+// **In the function PerfectGas::dirichletBC, Put this part in comment as done here**:
+  case SUPERSONICOUTWARD:
+        break;
+// Modif Marc (mis en commentaire)
+// s'assurer que la outlet est supersonique ! 
+      case SUBSONICOUTWARD:
+       // for (size_t i=0;i<dim;i++) v2 += UL(i+1)*UL(i+1);
+       // v2 /= rho; 
+       // UR(energyIndex) = p / GM1  + (0.5* v2 - rho * fEk);
+        break;
+      case TANGENT:
+      case SUBSONICINWARD:
+       // for (size_t i=0;i<dim;i++) UR(i+1) = 0;
+       // UR(energyIndex) = p / GM1  - rho * fEk;
+        break;
+
+// _______________________________________________________________________________ 
+// **In the function PerfectGas::addStateFunctionTags(), add**:
+ gradientFunctionTag["TestHeatFlux"]        =std::make_pair(TESTHEATFLUX,VECTOR);
+ 
+ 
+### In Argo/DGLib/DGLib/conservationLaw.hh
+
 ```
+
 
 ### Modif 2
 
 ```markdown
-// _______________________________________________________________________________ 
 
 ```
 
