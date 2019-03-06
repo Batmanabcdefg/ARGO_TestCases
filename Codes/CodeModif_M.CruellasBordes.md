@@ -4,17 +4,17 @@ Knowing that I am testing the effect of the DG-BR2 method on the exact **same me
 
 Hope it'll be usefull for the next VKI users!
 
-### <span style="color: red"> Modif 1 : Adding the calculation of the heat flux </span>
+### ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)Modif 1 : Adding the calculation of the heat flux  `#f03c15`
 ### In Argo/DGLib/DGLib/conservationLaw.cc
 
 ```markdown
 // _______________________________________________________________________________ 
-// In function **PerfectGas::addStateFunctionTags()** add:
+// **In function PerfectGas::addStateFunctionTags() add**:
 
   gradientFunctionTag["TestHeatFlux"] = std::make_pair(TESTHEATFLUX,VECTOR);
 
 // _______________________________________________________________________________ 
-// In function **PerfectGas::computeGradientFunction** add **in switch (tag)**:
+// **In function PerfectGas::computeGradientFunction add in switch (tag)**:
   case TESTHEATFLUX:
     {
       computeTestHeatFlux(*visSol,visGra,xyz,t,fieldData,fun);
@@ -22,7 +22,7 @@ Hope it'll be usefull for the next VKI users!
       return true;break;
     }
 // _______________________________________________________________________________  
-// Add this function
+// **Add this function**:
 bool PerfectGas::computeTestHeatFlux(const DGMatrix& sol,
                                  const DGMatrix* grad,
                                  const DGMatrix& xyz,
@@ -53,13 +53,12 @@ bool PerfectGas::computeTestHeatFlux(const DGMatrix& sol,
   }
   return true;
 }
-// _______________________________________________________________________________ 
 ```
 
 ### Modif 2
 
 ```markdown
-
+// _______________________________________________________________________________ 
 
 ```
 
