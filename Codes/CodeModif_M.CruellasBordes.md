@@ -79,16 +79,21 @@ virtual bool computeTestHeatFlux(const DGMatrix&,const DGMatrix*,const DGMatrix&
 ```
 
 
-### Modif 2
+### Modif 2: Pressure gradient
 
 ```markdown
+### In Argo/DGLib/DGLib/auxProcessors.cc
+// _______________________________________________________________________________ 
+// **In the constructor DGArtificialViscosityAP::DGArtificialViscosityAP add**:
+  pressureTag  = cLaw->getStateFunctionTag("Pressure",myVar);
+// _______________________________________________________________________________ 
+// **In the function DGArtificialViscosityAP::DGArtificialViscosityAP modif**:
+    //---- compute Persson's paramters ------------------------------
+    ...
+    // Modif Marc : densityTag -> pressureTag
+        cLaw->computeStateFunction(pressureTag,UPQP,coordQP,t,dummyFieldData,UPQP_sV);
+        cLaw->computeStateFunction(pressureTag,UPM1QP,coordQP,t,dummyFieldData,UPM1QP_sV);
 
+    
 ```
 
-
-### Modif 3
-
-```markdown
-sss
-
-```
