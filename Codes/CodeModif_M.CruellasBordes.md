@@ -1,5 +1,5 @@
 ## Modifications and adds made in the Argo plateform (February 2018 version)
-For his Master thesis fevrier 2019, Marc Cruellas Bordes added and modified some part of the code in order to run his test cases correctly. 
+For his Master thesis (February 2019), Marc Cruellas Bordes added and modified some part of the code in order to run his test cases correctly. 
 Knowing that I am testing the effect of the DG-BR2 method on the exact **same meshes he used** (`in order to compare his results -> DG-IP + AV`), I decided to report here all the modifications he made in order to get the heat flux or to use some tools from DGFluid (not accessible by the VKI).
 
 Hope it'll be usefull for the next VKI users!
