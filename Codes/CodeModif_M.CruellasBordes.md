@@ -7,7 +7,7 @@ Hope it'll be usefull for the next VKI users!
 ### Modif 1 : Adding the calculation of the heat flux 
 
 ```markdown
-### In Argo/DGLib/DGLib/conservationLaw.cc
+### In Argo/DGLib/DGLib/conservationLaw/ConservationLaw.cc
 // _______________________________________________________________________________ 
 // **In function PerfectGas::addStateFunctionTags() add**:
 
