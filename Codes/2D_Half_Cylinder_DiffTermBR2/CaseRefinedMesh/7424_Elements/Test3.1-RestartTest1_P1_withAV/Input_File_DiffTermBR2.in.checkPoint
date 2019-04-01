@@ -1,0 +1,201 @@
+GlobalProblem {
+  Files {
+    Input {
+      Mesh {
+        File = "Refined_Mesh_HalfCylinder_7424_elements.msh";
+        FileType = Gmsh;
+        NumberOfPartitions = 8;
+      }
+      InitialSolution {
+        Domains = ["Solution"];
+        File = "intermediate.bin";
+        Version = SingleFile;
+        Format = Native;
+        Mesh {
+          File = "Refined_Mesh_HalfCylinder_7424_elements.msh";
+          FileType = Gmsh;
+        }
+        Projection {
+          MappingInversion = Robust;
+        }
+      }
+    }
+    Output {
+      Prefix = "";
+      Performance {
+        CPULogFile = "log.cpu";
+        MemoryLogFile = "log.mem";
+      }
+      IntermediateSolution {
+        File = "intermediate.bin";
+        Frequency = 500;
+      }
+    }
+  }
+  Topology {
+    Domain = "Solution" {
+      Regions = [1];
+    }
+    Boundary = "Inlet" {
+      Faces = [6];
+    }
+    Boundary = "Outlet" {
+      Faces = [1:2 4:5];
+    }
+    Boundary = "Wall" {
+      Faces = [3];
+    }
+  }
+  TimeDependence {
+    Type = Steady;
+    TimeStep = 1e-08;
+    NumberOfTimeSteps = 800000;
+    TimeStepperStrategy = TabulatedTimeStep;
+    TabulatedTimeStep {
+      TimeSteps = [1.000000e-10 1.000000e-08 1.000000e-06 1.000000e-04];
+      FinalTimeForTimeSteps = [1.000000e-07 1.000000e-04 1.000000e-01 1.000000e+01];
+    }
+  }
+  Restart {
+    Type = CheckPoint;
+    Iteration = 128500;
+  }
+  Convergence {
+    NumberOfIterations = 1000000;
+    Tolerance = 1e-16;
+  }
+}
+DGFluidProblem {
+  Domains = ["Solution"];
+  Physics {
+    Properties {
+      FluidType = Compressible;
+      Compressible {
+        GoverningEquations = NavierStokes;
+        ConstitutiveLaw = IdealGas;
+        EntropyFix = 1e-06;
+        IdealGas {
+          Gamma = 1.4;
+          R = 287.1;
+          RiemannSolver = LaxFriedrichs;
+          ViscosityLaw = Newtonian;
+        }
+        ArtificialViscosity {
+          Type = Spectral;
+          ContinuousViscosity = Yes;
+          IsotropicMeshScaling = Yes;
+          Evaluation = EveryNewton;
+          Parameters = [1.000000e-01 -2.500000e+00 2.000000e+00];
+        }
+      }
+    }
+    BoundaryConditions {
+      FreeStream {
+        Boundaries = ["Inlet"];
+        Frame = Relative;
+        Type = PrimitiveVariables;
+        PrimitiveVariables {
+          PolarAxis = "None";
+          File = "";
+          Pressure = "476";
+          Temperature = "901";
+          Velocity = ["0.0" "-1956"];
+        }
+      }
+      SolidWall {
+        Boundaries = ["Wall"];
+        Momentum = Stick;
+        Thermal = Temperature;
+        Frame = Relative;
+        PolarAxis = "None";
+        Temperature = "1e3";
+      }
+      PressureOutlet {
+        Boundaries = ["Outlet"];
+        PolarAxis = "None";
+        File = "";
+        Pressure = "476";
+      }
+    }
+    InitialConditions {
+      FluidType = PrimitiveVariables;
+      PrimitiveVariables {
+        Pressure = "476";
+        Temperature = "901";
+        Velocity = ["0.0" "-1956"];
+      }
+    }
+    NonDimensionalisation {
+      FluidType = Compressible;
+      Compressible {
+        Pressure = 476;
+        Temperature = 901;
+      }
+    }
+  }
+  Numerics {
+    SpatialDiscretisation {
+      Formulation = DGM;
+      Interpolation {
+        FunctionSpace = LagrangianEquidistant;
+        InitialSolutionProjection = Lagrange;
+        Order = 1;
+      }
+      DiffusiveTerms {
+        Discretisation = BR2;
+        PenaltyParameter {
+          Value = Shahbazi;
+        }
+        BR2 {
+          FixedCoefficient = 1;
+          Coefficient = 1;
+        }
+      }
+    }
+    TemporalDiscretisation {
+      Strategy = Implicit;
+      Implicit {
+        Type = BDF2;
+        NumberOfIterations = 5;
+        NonlinearTolerance = 0.0001;
+      }
+    }
+    NonLinearSolver {
+      Method = Newton;
+      CFLStrategy {
+        CFLMinimum = 0.01;
+        CFLMaximum = 1e+06;
+        CFLExponent = 0.9;
+      }
+      Newton {
+        LinearSolver = GMRES;
+        GMRES {
+          Tolerance = 1e-12;
+          Iterations = 200;
+          SubSpaceSize = 200;
+          Preconditioner {
+            Type = ILU;
+            ILU {
+              Fill = 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  Outputs {
+    FieldExports {
+      Domain {
+        FileNameBase = "flux";
+        Frequency = -5000;
+        Type = Instantaneous;
+        Domains = ["Solution"];
+        Data = [TotalTemperature Temperature TotalPressure Pressure Velocity AbsoluteMachNumber Density ArtificialViscosity];
+      }
+      Boundary {
+        Boundaries = ["Wall"];
+        Data = [DiffusiveFluxes TestHeatFlux TotalPressure Pressure Density TotalTemperature];
+      }
+    }
+  }
+}
