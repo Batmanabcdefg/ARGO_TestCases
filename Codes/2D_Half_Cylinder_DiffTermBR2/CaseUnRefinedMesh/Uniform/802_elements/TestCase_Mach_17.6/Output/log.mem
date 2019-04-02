@@ -1,0 +1,316 @@
+DG model for :
+684 elements 
+--------------------------------------------------------------------------
+DGM discretisation for '2D Perfect Gas with Lax-Friedrichs flux' in ''
+--------------------------------------------------------------------------
+
+   o Conservation law : 2D Perfect Gas with Lax-Friedrichs flux
+
+   o Frame of reference : Stationary frame Stationary
+
+   o Boundary conditions : 
+
+      - Inlet : FreeStream - PrimitiveVariables
+      - Outlet : PressureOutlet
+      - Wall : StickWall - Temperature
+
+
+   o Residual operators :
+
+     - Optimised Volume
+     - Optimised Interface
+     - Boundary conditions
+
+
+   o Associated auxiliary processors : 
+
+     - Linearised dependencies : 
+       * Solution parametric gradient
+       * Solution parametric gradient on faces
+
+
+   o Element types 
+
+     - 684 quadrangle (p=0) : 1 functions, 1 integration points, integration accuracy 1
+
+   o Interface types 
+
+     - 1312 edge (p=0) : 1 functions, 1 integration points, integration accuracy 1
+RSS 25.58 (average) 25.58 (maximum) in MB
+VM  1139 (average) 1139 (maximum) 1139 (overal peak) MB
+------------------------------------------------------------
+Contents of the Auxiliary data container:
+------------------------------------------------------------
+
+ o 230 generic data vectors :
+
+     - 2D Perfect Gas with Lax-Friedrichs flux_dgmodel_res in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_dgmodel_tmp in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V0 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V1 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V10 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V100 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V101 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V102 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V103 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V104 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V105 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V106 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V107 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V108 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V109 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V11 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V110 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V111 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V112 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V113 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V114 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V115 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V116 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V117 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V118 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V119 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V12 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V120 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V121 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V122 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V123 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V124 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V125 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V126 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V127 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V128 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V129 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V13 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V130 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V131 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V132 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V133 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V134 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V135 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V136 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V137 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V138 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V139 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V14 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V140 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V141 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V142 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V143 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V144 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V145 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V146 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V147 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V148 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V149 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V15 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V150 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V151 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V152 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V153 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V154 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V155 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V156 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V157 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V158 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V159 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V16 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V160 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V161 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V162 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V163 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V164 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V165 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V166 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V167 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V168 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V169 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V17 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V170 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V171 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V172 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V173 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V174 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V175 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V176 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V177 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V178 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V179 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V18 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V180 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V181 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V182 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V183 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V184 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V185 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V186 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V187 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V188 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V189 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V19 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V190 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V191 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V192 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V193 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V194 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V195 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V196 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V197 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V198 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V199 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V2 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V20 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V200 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V21 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V22 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V23 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V24 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V25 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V26 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V27 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V28 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V29 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V3 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V30 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V31 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V32 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V33 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V34 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V35 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V36 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V37 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V38 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V39 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V4 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V40 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V41 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V42 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V43 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V44 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V45 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V46 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V47 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V48 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V49 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V5 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V50 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V51 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V52 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V53 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V54 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V55 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V56 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V57 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V58 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V59 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V6 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V60 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V61 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V62 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V63 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V64 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V65 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V66 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V67 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V68 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V69 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V7 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V70 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V71 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V72 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V73 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V74 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V75 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V76 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V77 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V78 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V79 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V8 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V80 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V81 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V82 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V83 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V84 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V85 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V86 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V87 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V88 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V89 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V9 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V90 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V91 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V92 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V93 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V94 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V95 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V96 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V97 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V98 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_V99 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_r in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_gmres_w in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_ilu in "" : DG Sparse matrix  ILU(1) , (size : 684 rows, 2525 above and 1941 below the diagonal; maximum block row/column size 4), 2.515MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_mvp_FD_res in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_mvp_FD_sol in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_newton_dt in "" : Flat vector containing 684 PODs , 0MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_newton_du in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_newton_res in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_newton_u0 in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_newton_uu in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux_res in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_aver in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x4, 1312: 112 blocks of 1x4) with 0 extended blocks, 0.04346MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_fnip in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x4, 1312: 112 blocks of 1x4) with 0 extended blocks, 0.04346MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_fnqp in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x4, 1312: 112 blocks of 1x4) with 0 extended blocks, 0.04346MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_gradXYZL in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 3x4, 1312: 112 blocks of 3x4) with 0 extended blocks, 0.1304MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_gradXYZR in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 3x4, 1312: 112 blocks of 3x4) with 0 extended blocks, 0.1304MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_jump in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x4, 1312: 112 blocks of 1x4) with 0 extended blocks, 0.04346MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_tFluxL in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 2x4, 1312: 112 blocks of 2x4) with 0 extended blocks, 0.08691MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_tFluxR in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 2x4, 1312: 112 blocks of 2x4) with 0 extended blocks, 0.08691MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_ulip in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x4, 1312: 112 blocks of 1x4) with 0 extended blocks, 0.04346MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_ulqp in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x4, 1312: 112 blocks of 1x4) with 0 extended blocks, 0.04346MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_urip in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x4, 1312: 112 blocks of 1x4) with 0 extended blocks, 0.04346MB
+     - DGInterfaceTerm2D Perfect Gas with Lax-Friedrichs flux_urqp in "" : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x4, 1312: 112 blocks of 1x4) with 0 extended blocks, 0.04346MB
+     - DGVolumeTerm2D Perfect Gas with Lax-Friedrichs flux_fu in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - DGVolumeTerm2D Perfect Gas with Lax-Friedrichs flux_fv in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - DGVolumeTerm2D Perfect Gas with Lax-Friedrichs flux_fw in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - DGVolumeTerm2D Perfect Gas with Lax-Friedrichs flux_sol in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+
+ o 20 auxiliary data vectors :
+   --------------
+
+     - 'Element inscribed radius' in ''  : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x1) with 0 extended blocks, 0.005219MB
+     - 'Element circumscribed radius' in ''  : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x1) with 0 extended blocks, 0.005219MB
+     - 'DG Face collocated minimal element radius' in ''  : DofContainer containing 1424 blocks, of which 1424 real (0: 1424 blocks of 1x3) with 0 extended blocks, 0.03259MB
+     - 'Face lift operators' at level 0 in ''  on 'Left : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x1, 1312: 112 blocks of 1x1) with 0 extended blocks, 0.01086MB
+     - 'Face lift operators' at level 0 in ''  on 'Right : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x1, 1312: 112 blocks of 1x1) with 0 extended blocks, 0.01086MB
+     - 'Face normal' at level 0 in ''  : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x3, 1312: 112 blocks of 1x3) with 0 extended blocks, 0.03259MB
+     - 'Face Jacobian determinant' at level 0 in ''  : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x1, 1312: 112 blocks of 1x1) with 0 extended blocks, 0.01086MB
+     - 'Element Jacobian inverse' at level 0 in ''  : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x9) with 0 extended blocks, 0.047MB
+     - 'Element Jacobian determinant' at level 0 in ''  : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x1) with 0 extended blocks, 0.005249MB
+     - 'Face quadrature point coordinates' at level 0 in ''  : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x3, 1312: 112 blocks of 1x3) with 0 extended blocks, 0.03259MB
+     - 'Element inverse Jacobian in faces' at level 0 in ''  : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 4x3, 1312: 112 blocks of 4x3) with 0 extended blocks, 0.1304MB
+     - 'Coordinates of the quadrature points in the element' at level 0 in ''  : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x3) with 0 extended blocks, 0.01569MB
+     - 'Coordinates of the interpolation points in the element' at level 0 in ''  : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x3) with 0 extended blocks, 0.01569MB
+     - 'Inverse mass matrix' at level 0 in ''  : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x1) with 0 extended blocks, 0.005249MB
+     - 'Face interpolation point coordinates' at level 0 in ''  : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 1x3, 1312: 112 blocks of 1x3) with 0 extended blocks, 0.03259MB
+     - 'DG Element parametric gradient' at level 0 in ''  on 'ElmtQP : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 3x4) with 0 extended blocks, 0.06262MB
+     - 'DG Face parametric gradient' at level 0 in ''  on 'FaceQP : DofContainer containing 1424 blocks, of which 1312 real (0: 1312 blocks of 4x4, 1312: 112 blocks of 4x4) with 0 extended blocks, 0.1738MB
+     - 'Boundary imposed field' at level 0 in ''  on 'Inlet : DofContainer containing 38 blocks, of which 38 real (0: 38 blocks of 1x5) with 0 extended blocks, 0.001465MB
+     - 'Boundary imposed field' at level 0 in ''  on 'Outlet : DofContainer containing 36 blocks, of which 36 real (0: 36 blocks of 1x1) with 0 extended blocks, 0.0003052MB
+     - 'Boundary imposed field' at level 0 in ''  on 'Wall : DofContainer containing 38 blocks, of which 38 real (0: 38 blocks of 1x4) with 0 extended blocks, 0.00116MB
+
+ o Total size = 8.438MB
+   ------------
+
+------------------------------------------------------------
+Contents of the Solution container:
+------------------------------------------------------------
+
+ o 2 generic data vectors :
+
+     - 2D Perfect Gas with Lax-Friedrichs flux in "" at t-1 : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+     - 2D Perfect Gas with Lax-Friedrichs flux in "" : DofContainer containing 684 blocks, of which 684 real (0: 684 blocks of 1x4) with 0 extended blocks, 0.02087MB
+
+ o Total size = 0.04175MB
+   ------------
+
