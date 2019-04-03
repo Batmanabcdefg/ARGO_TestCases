@@ -1,0 +1,102 @@
+Argo svn 0.1.6568MP
+
+--------------------------------------------------------------------------
+DGM discretisation for '2D Perfect Gas with Lax-Friedrichs flux' in ''
+--------------------------------------------------------------------------
+
+   o Conservation law : 2D Perfect Gas with Lax-Friedrichs flux
+
+   o Frame of reference : Stationary frame Stationary
+
+   o Boundary conditions : 
+
+      - Inlet : FreeStream - PrimitiveVariables
+      - Outlet : PressureOutlet
+      - Wall : StickWall - Temperature
+
+
+   o Residual operators :
+
+     - Optimised Volume
+     - Optimised Interface
+     - Boundary conditions
+
+
+   o Associated auxiliary processors : 
+
+     - Linearised dependencies : 
+       * Solution parametric gradient
+       * Solution parametric gradient on faces
+
+
+   o Element types 
+
+     - 171 quadrangle (p=0) : 1 functions, 1 integration points, integration accuracy 1
+
+   o Interface types 
+
+     - 314 edge (p=0) : 1 functions, 1 integration points, integration accuracy 1
+
+Newton iterations  took 519.638 seconds 
+
+Time spent in discretisation : 
+
+  Total time spent in constructing the residual 207.782 for 21409 evaluations 
+  Individual contributions:
+
+   o Update of residual terms: 64.8149s before and 10.3376s after exchange
+     - Optimised Volume: 19.4044s
+     - Optimised Interface: 41.0173s
+     - Boundary conditions: 14.71s
+   o Linearised dependencies: 49.2477s before and 10.5538s after exchange, 1.28066s cleaning
+   o Premultiplication with mass matrix: 6.16961 s
+   o Sending the solution:     0.0963981 s
+   o Waiting for the solution: 0.00103593 s
+   o Time spent in exchanging the residual (29000): 0.0797071 s
+
+  Total time spent in constructing the Jacobian 9.31517, 3454 evaluations 
+  Individual contributions  :
+
+   o Optimised Volume : 1.15793 s, 0.13058 GFlops
+   o Optimised Interface : 4.50803 s, 0.0584878 GFlops
+   o Boundary conditions : 1.58464 s, 0.0361302 GFlops
+   o Time spent in premultiplying with the mass matrix : 1.58647 s
+   o Time spent in exchanging the solution (3454 ) - total 0.00710344, average:2.05658e-06 s
+
+Time spent in ksp solver : 
+
+  Krylov subspace solver took 483.811 seconds for 3454 solves 
+
+  o Cost for the preconditioner : 
+
+    Time spent in ILU preconditioner = 26.9013 seconds for 3454 initialisations and 53.8879 for 14500 applications:
+
+       o 3454 (I)LU decompositions : 16.5966, pivot inversion = 12.9083s, 0.00780906 GFlops, row reduction : 3.68834, 0.211446 GFlops 
+       o 14500 LU solve  : 4.63768, forward substitution : 2.04351 s, 0.129992GFlops, backward substitution : 2.59417 s, 0.132806GFlops 
+       o Copy from external vector 24.5304
+       o Copy to external vector 24.5304
+
+      Variables were renumbered to optimise bandwidth (Reverse Cuthill-McKee)
+      
+  o Cost for the matrix-vector product : 
+
+    Time spent in matrix-vector product by one-sided finite differences is 327.142 seconds for 3454 initialisations and 11046 applications
+
+
+CPU statistics for aux-processors
+
+   o Element inscribed radius, 1 evaluations : 0.0232959
+   o Element circumscribed radius, 1 evaluations : 0.021729
+   o Faces minimum of inscribed radii, 1 evaluations : 0.00772595
+   o Face Jacobian and normal, 1 evaluations : 0.0199289
+   o Element Jacobian determinant and inverse, 1 evaluations : 0.000332117
+   o Face point coordinates, 1 evaluations : 0.000221014
+   o Element Jacobian data in faces, 1 evaluations : 0.0116181
+   o Element quadrature point coordinates, 1 evaluations : 0.038121
+   o Element inverse mass matrix, 1 evaluations : 0.016988
+   o Solution parametric gradient, 21410 evaluations : 22.528
+   o Solution parametric gradient on faces, 21410 evaluations : 32.9788(23.877 before and 9.09915 after communication, 0.00257659 finalising)
+   o Boundary imposed field Inlet, 1 evaluations : 0.0151
+   o Boundary imposed field Outlet, 1 evaluations : 0.013334
+   o Boundary imposed field Wall, 1 evaluations : 0.013238
+   o Face lift operators, 1 evaluations : 0.024895
