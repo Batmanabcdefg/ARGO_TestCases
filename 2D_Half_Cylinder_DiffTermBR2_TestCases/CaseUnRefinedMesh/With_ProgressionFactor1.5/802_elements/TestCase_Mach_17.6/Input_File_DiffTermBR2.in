@@ -1,0 +1,480 @@
+// Version = 1.100000e+00;
+/*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+ Test case 2D half cylinder			     *
+ Mesh : Unrefined_Mesh_802_elements_with_            *
+        FactorProgressionScale_1.5                   *
+        (Gmsh: 2nd order)                            *
+ DG              : P0			             *
+ Convective term : Lax Friedrich                     *
+ Diffusive term  : BR2 	                             *
+ Test Case       : MACH 17.6			     *
+ *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*/
+
+//////////////////////////////////////////////////////
+// START GLOBAL PROBLEM //////////////////////////////
+GlobalProblem {
+//__________________________________________________
+  Files {
+    Input {
+      // Prefix = "";
+      Mesh {
+        File = "Unrefined_Mesh_802_elements_with_FactorProgressionScale_1.5.msh";
+        FileType = Gmsh; // Gmsh GmshPart
+        // Units = M; // M CM MM MiM INCH FT
+        NumberOfPartitions = 8;
+      }
+      InitialSolution {
+        // [OPTIONS SEE template.in]
+        Mesh {
+	  // [OPTIONS SEE template.in]
+        }
+        Projection {
+	  // [OPTIONS SEE template.in]
+        }
+        Transformation {
+	  // [OPTIONS SEE template.in]
+        }
+      }
+    }
+    Output {
+      Prefix = "Output/";
+      Performance {
+	CPULogFile = "log.cpu";
+        MemoryLogFile = "log.mem";
+      }
+      IntermediateSolution {
+        File = "intermediate.bin";
+        Frequency = 500;
+	// [OTHER OPTIONS SEE template.in]
+      }
+      Monitor {
+        // [OPTIONS SEE template.in]
+      }
+    }
+  }
+//__________________________________________________
+  Topology {
+    Domain = "Solution" {
+      Regions = [1];
+    }
+    Boundary = "Inlet" {
+      Faces = [4];
+    }
+    Boundary = "Outlet" {
+      Faces = [1 3];
+    }
+    Boundary = "Wall" {
+      Faces = [2];
+    }
+    }
+//__________________________________________________
+  TimeDependence {
+    Type = Steady; // Steady Unsteady Frequential
+    TimeStep = 1e-8;
+    NumberOfTimeSteps = 800000;
+    TimeStepperStrategy = TabulatedTimeStep; // FixedTimeStep TabulatedTimeStep AdaptiveTimeStep
+    // [OTHER OPTIONS SEE template.in]
+	FixedTimeStep {
+	  // [OPTIONS SEE template.in]
+    }
+    TabulatedTimeStep {
+      TimeSteps = [1e-10 1e-8 1e-6 1e-4];
+      FinalTimeForTimeSteps = [1e-7 1e-4 1e-1 1e+1];
+    }
+  }
+//__________________________________________________
+  StatParameters {
+    // [OPTIONS SEE template.in]
+  }
+//__________________________________________________
+  Restart {
+    //Type = Clean; // None Full Clean CheckPoint
+    Iteration = 0;
+  }
+//__________________________________________________
+  Convergence {
+    NumberOfIterations = 1000000;
+    Tolerance = 1.000000e-8;
+  }
+}
+//////////////////////////////////END GLOBAL PROBLEM//
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// START DGFLUID PROBLEM /////////////////////////////
+DGFluidProblem {
+  Domains = ["Solution"];
+//__________________________________________________
+  Physics {
+    Properties { 
+      FluidType = Compressible; // Compressible
+      Compressible {
+	GoverningEquations = NavierStokes; // NavierStokes Euler
+        ConstitutiveLaw = IdealGas; // IdealGas
+        EntropyFix = 1.000000e-06;
+        Clipping {
+	  // [OPTIONS SEE template.in]
+        }
+        IdealGas {
+          Gamma = 1.400000e+00;
+          R = 2.871000e+02;
+          RiemannSolver = LaxFriedrichs; // LaxFriedrichs
+          ViscosityLaw = Newtonian; // Newtonian Sutherland PowerLaw
+          Newtonian {
+	    // [OPTIONS SEE template.in]
+          }
+          Sutherland {
+	    // [OPTIONS SEE template.in]
+          }
+          PowerLaw {
+            // [OPTIONS SEE template.in]
+          }
+        }
+        ArtificialViscosity {
+          //Type = Spectral; // Spectral None
+          //ContinuousViscosity = Yes; // Yes No
+          //IsotropicMeshScaling = Yes; // Yes No
+          //Evaluation = EveryNewton; // EveryTimeStep EveryNewton WithinNewton
+          //Parameters = [0.17 -2.0 0.5];
+        }
+        // [OPTIONS SEE template.in]
+      }
+    }
+    BoundaryConditions {
+      FreeStream {
+        Boundaries = ["Inlet"];
+        Frame = Relative; // Relative Absolute
+        Type = PrimitiveVariables; // PrimitiveVariables TotalConditions MachStatic StructuredPrimitiveVariables
+        PrimitiveVariables {
+          PolarAxis = "None";
+          File = "";
+          Pressure = "57.65";
+          Temperature = "200";
+          Velocity = ["0.0" "-5000"];
+        }
+        MachStatic {
+	  // [OPTIONS SEE template.in]
+        }
+        MachTotal {
+	  // [OPTIONS SEE template.in]
+        }
+        StructuredPrimitiveVariables {
+	  // [OPTIONS SEE template.in]
+        }
+      }
+      SolidWall {
+        Boundaries = ["Wall"];
+        Momentum = Stick; // Slip Stick WallModel
+        Thermal = Temperature; // Adiabatic Temperature HeatFlux WallModel
+        Frame = Relative; // Relative Absolute
+        PolarAxis = "None";
+        // File = "";
+        // Velocity = [];
+        Temperature = "500";
+        // HeatFlux = "0";
+        WallModel {
+          // Momentum = Reichardt; // Reichardt LogLaw ViscousSublayer
+          // Thermal = Kader; // Kader TwoLayerAnalogy
+          ThermalWM {
+            // TurbulentPrandtlNumber = 9.000000e-01;
+            TwoLayerAnalogy {
+              // LaminarLayerYPlus = 1.180000e+01;
+            }
+          }
+        }
+      }
+
+      VelocityInlet {
+	// [OPTIONS SEE template.in]
+        TurbulentInflow {
+	  // [OPTIONS SEE template.in]
+          Davidson {
+	    // [OPTIONS SEE template.in]
+          }
+          Rogallo {
+	    // [OPTIONS SEE template.in]
+          }
+          Jarrin {
+	    // [OPTIONS SEE template.in]
+          }
+          Pamies {
+	    // [OPTIONS SEE template.in]
+          }
+        }
+      }
+      PressureOutlet {
+        Boundaries = ["Outlet"];
+        PolarAxis = "None";
+        File = "";
+        Pressure = "57.65";
+      }
+      RadialEquilibrium {
+	// [OPTIONS SEE template.in]
+      }
+      TotalConditions {
+	// [OPTIONS SEE template.in]
+        Ramping {
+	  // [OPTIONS SEE template.in]
+        }
+	// [OPTIONS SEE template.in]
+        TurbulentInflow {
+	  // [OPTIONS SEE template.in]
+          Davidson {
+	    // [OPTIONS SEE template.in]
+          }
+          Rogallo {
+	    // [OPTIONS SEE template.in]
+          }
+          Jarrin {
+	    // [OPTIONS SEE template.in]
+          }
+          Pamies {
+	    // [OPTIONS SEE template.in]
+          }
+        }
+      }
+      Symmetry {
+        // Boundaries = [];
+        // PolarAxis = "None";
+        // File = "";
+      }
+      SpongeLayer {
+	// [OPTIONS SEE template.in]
+      }
+    }
+    InitialConditions {
+      // Frame = Relative; // Relative Absolute
+      FluidType = PrimitiveVariables; // PrimitiveVariables Channel MachStatic MachTotal StructuredIncompressibleField SyntheticTurbulence
+      PrimitiveVariables {
+	// PolarAxis = "None";
+        //File = "";
+        Pressure = "57.65";
+        Temperature = "200";
+        Velocity = ["0.0" "-5000"];
+      }
+      VelocityPerturbation {
+        // [OPTIONS SEE template.in]
+        RandomPerturbation {
+          // [OPTIONS SEE template.in]
+        }
+      }
+      MachStatic {
+	// [OPTIONS SEE template.in]
+      }
+      MachTotal {
+       // [OPTIONS SEE template.in]
+      }
+      StructuredIncompressibleField {
+       // [OPTIONS SEE template.in]
+      }
+      Channel {
+	// [OPTIONS SEE template.in]
+      }
+      SyntheticTurbulence {
+        // [OPTIONS SEE template.in]
+      }
+    }
+    NonDimensionalisation {
+      //LengthScale = 1.000000e+00;
+      FluidType = Compressible; // Compressible
+      Compressible {
+        Pressure = 57.65;
+        Temperature = 200;
+      }
+    }
+    SourceTerm {
+      // [OPTIONS SEE template.in]
+      MassFlow {
+	// [OPTIONS SEE template.in]
+      }
+      BulkConditions {
+        // [OPTIONS SEE template.in]
+      }
+    }
+  }
+//__________________________________________________  
+  Numerics {
+    SpatialDiscretisation {
+      Formulation = DGM; // DGM
+      Interpolation {
+        FunctionSpace = LagrangianEquidistant; // LagrangianEquidistant LagrangianFekete
+        InitialSolutionProjection = Lagrange; // Galerkin Lagrange
+        Order = 0;
+        // VariableOrderBoundary = 4;
+        // VariableOrder = "500";
+      }
+      Quadrature {
+        // [OPTIONS SEE template.in]
+      }
+      DiffusiveTerms {
+         Discretisation = BR2; // SIPDG NIPDG IIPDG BR2
+        PenaltyParameter {
+          Value = Shahbazi; // Shahbazi ShahbaziElement Imposed
+          Shahbazi {
+            // SafetyFactor = 1.000000e+00;
+          }
+           //LengthScale = MinimumRadius; // MinimumRadius DistanceToOpposingNode
+           //ImposedValue = 2.000000e+01;
+        }
+        BR2 {
+           FixedCoefficient = 1;
+           Coefficient = 1;
+        }
+      }
+    }
+    TemporalDiscretisation {
+      Strategy = Implicit; // Implicit Explicit SuperExplicit
+      Implicit {
+        Type = BDF2; // BDF1 BDF2 ESDIRK43 ESDIRK64 MBDF2 MBDF3 MBDF4 TIAS4 TIAS5 TIAS6
+        NumberOfIterations = 5;
+        NonlinearTolerance = 1.000000e-04;
+        // FreezeJacobianMatrix = 1;
+        // StopOnNonConvergence = Yes; // Yes No
+        // NonLinearAbsoluteTolerance = 2.220446e-16;
+        // GuessFromPreviousStep = Yes; // Yes No
+      }
+      Explicit {
+        // Type = RK44; // RK44 RK22 RK33 RKC1
+        // CFL = 1.000000e+00;
+      }
+      SuperExplicit {
+        // Type = RKC1; // RKC1
+        // NumberOfSteps = 30;
+        // PrecisionFactorMin = 1.000000e-02;
+        // PrecisionFactorMax = 2.000000e+00;
+        // CFL = 1.000000e+00;
+      }
+    }
+    NonLinearSolver {
+      Method = Newton; // Newton RungeKutta
+      // FreezeJacobianMatrix = 1;
+      CFLStrategy {
+        CFLMinimum = 1.000000e-1;
+        CFLMaximum = 1.000000e+5;
+        CFLExponent = 7.000000e-01;
+        // CFLReinitialisation = 0;
+        // ConstantTimeStep = No; // No Yes
+        // Type = SwitchedEvolutionRelaxation; // SwitchedEvolutionRelaxation ExponentialProgression
+        ExponentialProgression {
+          // CFLIncrease = 2.000000e+00;
+          // CFLDecrease = 1.000000e+01;
+        }
+      }
+      OrderSequencing {
+        // NumberOfLevels = 0;
+        // ReinitialiseCFL = No; // No Yes
+        Convergence {
+          // NumberOfIterations = 0;
+          // Tolerance = 1.000000e+00;
+        }
+      }
+      Newton {
+        LinearSolver = GMRES; // GMRES Gauss FGMRES ILU Jacobi Pardiso
+        LineSearch {
+          // Type = None; // LimitAbsoluteUpdate LimitNegativeUpdate None
+          // Threshold = 1.000000e-01;
+        }
+        GMRES {
+          Tolerance = 1.000000e-12;
+          Iterations = 200;
+          SubSpaceSize = 200;
+          // MatrixVectorProduct = FiniteDifference; // FiniteDifference FiniteDifference2nd Direct
+          // RecomputeTolerance = Yes; // Yes No
+          Preconditioner {
+            Type = ILU; // Gauss ILU ILUt Identity Jacobi LUSGS LineImplicit
+            ILU {
+             // Renumbering = RCMK; // RCMK FillIn No
+              Fill = 1;
+            }
+            LUSGS {
+             // [OPTIONS SEE template.in]
+            }
+            ILUt {
+              // [OPTIONS SEE template.in]
+            }
+          }
+        }
+        ILU {
+          // Fill = 0;
+        }
+      }
+      RungeKutta {
+         // [OPTIONS SEE template.in]
+      }
+    }
+  }
+//__________________________________________________  
+  Outputs {
+    FieldExports {
+      Domain {
+        FileNameBase = "flux";
+        // IterativeFrequency = -1;
+        Frequency = -100;
+        Type = Instantaneous; // Instantaneous Averages FavreAverages BasedOnAverage Correlations FavreCorrelations FourierTransform
+        Domains = ["Solution"];
+        Data = [Temperature Pressure Velocity AbsoluteMachNumber Density Entropy]; // [AbsoluteMachNumber AbsoluteTotalPressure AbsoluteTotalTemperature AbsoluteVelocity ArtificialViscosity ArtificialViscositySensor ArtificialViscosityVector Celerity ClippedDensity ClippedPressure ClippedTemperature Density DilatationSquare DiscretisationOrders Dissipation DynamicViscosity Enstrophy Entropy GradRhoOverRho KineticEnergy KineticEnergyDensity KineticEnergyIndicator Lambda2 MachNumber PolarVelocity PolarVorticity Pressure PressureDilatation PressureGradients QCriterion Rothalpy Solution Temperature TemperatureSquare TotalPressure TotalTemperature Velocity VelocityDivergence VelocityGradients VelocityGradientsCube VelocityGradientsSquare VelocitySquare ViscousDissipation Vorticity]
+        // Format = Msh20; // Msh20 Mshi
+        // Version = SingleFile; // SingleFile SeparateFiles SeparateViews
+        // OnLevelSets = [];
+        // PolynomialIncrement = 0;
+      }
+      // unassigned multiple parameter
+      Boundary {
+        // FileNameBase = "";
+        // IterativeFrequency = -1;
+        // Frequency = 100;
+        // Type = Instantaneous; // Instantaneous Averages FavreAverages BasedOnAverage Correlations FavreCorrelations FourierTransform
+         Boundaries = ["Wall"];
+         Data = [Temperature Pressure Density ViscousDissipation Entropy Velocity AbsoluteMachNumber]; // [AbsoluteMachNumber AbsoluteTotalPressure AbsoluteTotalTemperature AbsoluteVelocity ArtificialViscosity ArtificialViscositySensor ArtificialViscosityVector Celerity ClippedDensity ClippedPressure ClippedTemperature Density DiffusiveFluxes DilatationSquare DiscretisationOrders Dissipation DynamicViscosity Enstrophy Entropy GradRhoOverRho ImposedData KineticEnergy KineticEnergyDensity Lambda2 MachNumber PolarVelocity PolarVorticity Pressure PressureDilatation PressureGradients QCriterion Rothalpy Solution SolutionRMS Temperature TemperatureSquare TotalPressure TotalTemperature Velocity VelocityDivergence VelocityGradients VelocityGradientsCube VelocityGradientsSquare VelocitySquare ViscousDissipation Vorticity WallResolution]
+ // [OTHER OPTIONS SEE template.in]
+      }
+
+      Structured {
+        // [OPTIONS SEE template.in]
+	}
+    }
+    Cuts {
+      Boundary {
+	// [OPTIONS SEE template.in]
+        LevelSet {
+	  // [OPTIONS SEE template.in]
+          Plane {
+	    // [OPTIONS SEE template.in]
+          }
+        }
+      }
+    }
+    Monitors {
+      BoundaryFlux {
+	// [OPTIONS SEE template.in]
+      }
+      Probes {
+	// [OPTIONS SEE template.in]
+      }
+      DomainError {
+	// [OPTIONS SEE template.in]
+      }
+      // unassigned multiple parameter
+      BoundaryError {
+	// [OPTIONS SEE template.in]
+      }
+      DomainIntegral {
+	// [OPTIONS SEE template.in]
+	}
+      BoundaryIntegral {
+	// [OPTIONS SEE template.in]
+	}
+      DomainExtrema {
+	// [OPTIONS SEE template.in]
+	}
+      BoundaryExtrema {
+	// [OPTIONS SEE template.in]
+	}
+      JumpIntegral {
+        // [OPTIONS SEE template.in]
+	}	
+    }
+  }
+}
+/////////////////////////////// END DGFLUID PROBLEM //
+//////////////////////////////////////////////////////
