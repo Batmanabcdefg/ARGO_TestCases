@@ -1,0 +1,244 @@
+// Version = 1.100000e+00;
+GlobalProblem {
+  Files {
+    Input {
+      Prefix = "../input/";
+      Mesh {
+        File = "HyperGMSH_8.msh";
+        FileType = Gmsh;
+        NumberOfPartitions = 8;
+      }
+      InitialSolution {
+        Domains = ["cylinder"];
+        File = "initialp2p1p0.bin";
+        Version = SingleFile;
+        Format = Native;
+        Projection {
+          MappingInversion = Robust;
+        }
+//         Mesh {
+//           File="HyperGMSH_32.msh";//restartMESH
+//           FileType = Gmsh; // Gmsh GmshPart
+//           // Units = M; // M CM MM MiM INCH FT
+//           NumberOfPartitions = 32;
+//         }
+      }
+      Adaptation {
+        RequiredAdaptation = Yes;
+        MaximumIterations = 1;
+        MaxAnisotropy = 200;
+        MaxGradient = 2;
+        MinLength = 1e-12;
+        Complexity = [1.000000e+03];
+      }
+    }
+    Output {
+      Prefix = "../output_p2p1p0/";
+      IntermediateSolution {
+        File = "intermediate.bin";
+        Frequency = 100;
+        Store = LastFile;
+      }
+    }
+  }
+  Topology {
+    Domain = "cylinder" {
+      Regions = [2];
+    }
+    Boundary = "Inlet" {
+      Faces = [4];
+    }
+    Boundary = "Outlet" {
+      Faces = [3];
+    }
+    Boundary = "Wall" {
+      Faces = [5];
+    }
+  }
+  TimeDependence {
+    Type = Steady;
+    TimeStep = 1e-02;
+    NumberOfTimeSteps = 1100;
+  }
+  Restart {
+    Type = Clean;
+    Iteration = 0;
+  }
+  Convergence {
+    NumberOfIterations = 1000;
+    Tolerance = 1e-06;
+  }
+}
+DGFluidProblem {
+  Domains = ["cylinder"];
+  Physics {
+    Properties {
+      FluidType = Compressible;
+      Compressible {
+        GoverningEquations = NavierStokes;
+        ConstitutiveLaw = IdealGas;
+        EntropyFix = 1e-06;
+        Clipping {
+          MinimumPressure = 0.001;
+          MinimumDensity = 1e-06;
+          MinimumTemperature = 0;
+          MaximumPressure = 1e+8;
+          MaximumDensity = 1e+8;
+          MaximumTemperature = 1e+5;
+        }
+        IdealGas {
+          Gamma = 1.4;
+          R = 287.1;
+          RiemannSolver = HLL;
+          ViscosityLaw = Newtonian;
+          Newtonian {
+            Viscosity = 1.5e-05;
+            Conductivity = 0.02414;
+          }
+        }
+        ArtificialViscosity {
+          Type = Spectral; // Spectral None
+          ContinuousViscosity = Yes; // Yes No
+          IsotropicMeshScaling = No; // Yes No
+          Evaluation = EveryNewton; // EveryTimeStep EveryNewton WithinNewton
+          Parameters = [1e-7 -2.5 2.0]; // [0.12 -2.5 1.0]
+        }
+      }
+    }
+    BoundaryConditions {
+      FreeStream {
+        Boundaries = ["Inlet"];
+        Frame = Relative;
+        Type = PrimitiveVariables;
+        PrimitiveVariables {
+          PolarAxis = "None";
+          File = "";
+          Pressure = "1266.72258051";
+          Temperature = "60.9756097561";
+          Velocity = ["0.0" "-939.31215103"];
+        }
+      }
+      SolidWall {
+        Boundaries = ["Wall"];
+        Momentum = Stick;
+        Thermal = Temperature;
+        Frame = Relative;
+        PolarAxis = "None";
+        Temperature = "300.0";
+      }
+      PressureOutlet {
+        Boundaries = ["Outlet"];
+        PolarAxis = "None";
+        File = "";
+        Pressure = "1266.72258051";
+      }
+    }
+    InitialConditions {
+      FluidType = PrimitiveVariables;
+      PrimitiveVariables {
+        Pressure = "1266.72258051";
+        Temperature = "300";
+        Velocity = ["0.0" "0.0"];
+      }
+    }
+    NonDimensionalisation {
+      FluidType = Compressible;
+      Compressible {
+        Pressure = 59000;
+        Temperature = 500;
+      }
+    }
+  }
+  Numerics {
+    SpatialDiscretisation {
+      Formulation = DGM;
+      Interpolation {
+        FunctionSpace = LagrangianEquidistant;
+        InitialSolutionProjection = Lagrange;
+        Order = 3;
+        VariableOrder = "Step(-((x-0.0)^2+(y)^2-1.04^2))*3+(Step((-2.353e-1*x^2+1.339-y))*Step(((x-0.0)^2+(y)^2-1.04^2)))*2+(Step((-2.353e-1*x^2+1.416-y))*Step(-(-2.353e-1*x^2+1.339-y))*1)";
+//         VariableOrder = "Step(-((x-0.0)^2+(y)^2-1.05^2))*1";
+      }
+      DiffusiveTerms {
+        Discretisation = BR2;
+        PenaltyParameter {
+          Value = Shahbazi;
+        }
+        BR2 {
+          FixedCoefficient = 1;
+          Coefficient = 1;
+        }
+      }
+    }
+    TemporalDiscretisation {
+      Strategy = Implicit;
+      Implicit {
+        Type = BDF2;
+        NumberOfIterations = 5;
+        NonlinearTolerance = 0.0001;
+      }
+    }
+    NonLinearSolver {
+      Method = Newton;
+      FreezeJacobianMatrix = 1;
+      CFLStrategy {
+        CFLMinimum = 0.5;
+        CFLMaximum = 1e+04;
+        CFLExponent = 1.3;
+        CFLReinitialisation = 0;
+        Type = SwitchedEvolutionRelaxation;
+        ExponentialProgression {
+          CFLIncrease = 1.01;
+          CFLDecrease = 10;
+        }
+      }
+      Newton {
+        LinearSolver = GMRES;
+        GMRES {
+          Tolerance = 0.001;
+          Iterations = 100;
+          SubSpaceSize = 100;
+          MatrixVectorProduct = FiniteDifference;
+          Preconditioner {
+            Type = ILU;
+            ILU {
+              Fill = 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  Outputs {
+    FieldExports {
+      Domain {
+        FileNameBase = "";
+        IterativeFrequency = -100;
+        Frequency = -200;
+        Type = Instantaneous;
+        Domains = ["cylinder"];
+        Data = [Temperature MachNumber Solution Velocity Pressure DiscretisationOrders Residual ArtificialViscositySensor ArtificialViscosity];
+        Format = Msh20;
+        Version = SingleFile;
+        PolynomialIncrement = 0;
+      }
+      Boundary {
+        IterativeFrequency = -1;
+        Frequency = -200;
+        Type = Instantaneous;
+        Boundaries = ["Wall"];
+        Data = [DiffusiveFluxes HeatFlux Pressure TotalTemperature];
+          PolynomialIncrement = 0;
+      }
+      
+      
+    }
+    Monitors {
+      BoundaryFlux {
+        Frequency = -100;
+        Type = Instantaneous;
+        Boundaries = ["Wall"];
+      }
+    }
+  }
+}
