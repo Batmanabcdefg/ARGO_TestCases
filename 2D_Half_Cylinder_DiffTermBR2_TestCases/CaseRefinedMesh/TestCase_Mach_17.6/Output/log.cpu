@@ -1,0 +1,103 @@
+Argo svn 0.1.6568MP
+
+--------------------------------------------------------------------------
+DGM discretisation for '2D Perfect Gas with Lax-Friedrichs flux' in ''
+--------------------------------------------------------------------------
+
+   o Conservation law : 2D Perfect Gas with Lax-Friedrichs flux
+
+   o Frame of reference : Stationary frame Stationary
+
+   o Boundary conditions : 
+
+      - Inlet : FreeStream - PrimitiveVariables
+      - Outlet : PressureOutlet
+      - Wall : StickWall - Temperature
+
+
+   o Residual operators :
+
+     - Optimised Volume
+     - Optimised Interface
+     - Boundary conditions
+
+
+   o Associated auxiliary processors : 
+
+     - Linearised dependencies : 
+       * Solution parametric gradient
+       * Solution parametric gradient on faces
+
+
+   o Element types 
+
+     - 1245 triangle (p=0) : 1 functions, 1 integration points, integration accuracy 1
+     - 3118 quadrangle (p=0) : 1 functions, 1 integration points, integration accuracy 1
+
+   o Interface types 
+
+     - 7989 edge (p=0) : 1 functions, 1 integration points, integration accuracy 1
+
+Newton iterations  took 2993.27 seconds 
+
+Time spent in discretisation : 
+
+  Total time spent in constructing the residual 1128.18 for 61906 evaluations 
+  Individual contributions:
+
+   o Update of residual terms: 670.037s before and 38.854s after exchange
+     - Optimised Volume: 45.0703s
+     - Optimised Interface: 587.489s
+     - Boundary conditions: 76.1888s
+   o Linearised dependencies: 218.465s before and 38.3734s after exchange, 5.05888s cleaning
+   o Premultiplication with mass matrix: 71.004 s
+   o Sending the solution:     0.433857 s
+   o Waiting for the solution: 0.00351095 s
+   o Time spent in exchanging the residual (92218): 0.52221 s
+
+  Total time spent in constructing the Jacobian 401.591, 7898 evaluations 
+  Individual contributions  :
+
+   o Optimised Volume : 54.6094 s, 0.161538 GFlops
+   o Optimised Interface : 220.347 s, 0.0614628 GFlops
+   o Boundary conditions : 9.52512 s, 0.0562049 GFlops
+   o Time spent in premultiplying with the mass matrix : 72.6915 s
+   o Time spent in exchanging the solution (7898 ) - total 0.0248299, average:3.14382e-06 s
+
+Time spent in ksp solver : 
+
+  Krylov subspace solver took 1687.78 seconds for 7898 solves 
+
+  o Cost for the preconditioner : 
+
+    Time spent in ILU preconditioner = 1036.05 seconds for 7898 initialisations and 620.97 for 46109 applications:
+
+       o 7898 (I)LU decompositions : 574.615, pivot inversion = 273.726s, 0.0214849 GFlops, row reduction : 300.889, 0.179638 GFlops 
+       o 46109 LU solve  : 554.328, forward substitution : 244.047 s, 0.102546GFlops, backward substitution : 310.281 s, 0.0981736GFlops 
+       o Copy from external vector 36.8304
+       o Copy to external vector 36.8304
+
+      Variables were renumbered to optimise bandwidth (Reverse Cuthill-McKee)
+      
+  o Cost for the matrix-vector product : 
+
+    Time spent in matrix-vector product by one-sided finite differences is 970.056 seconds for 7898 initialisations and 38211 applications
+
+
+CPU statistics for aux-processors
+
+   o Element inscribed radius, 1 evaluations : 0.00460696
+   o Element circumscribed radius, 1 evaluations : 0.00228095
+   o Faces minimum of inscribed radii, 1 evaluations : 0.000344038
+   o Face Jacobian and normal, 1 evaluations : 0.0140882
+   o Element Jacobian determinant and inverse, 1 evaluations : 0.00797701
+   o Face point coordinates, 1 evaluations : 0.00419712
+   o Element Jacobian data in faces, 1 evaluations : 0.0665779
+   o Element quadrature point coordinates, 1 evaluations : 0.0461121
+   o Element inverse mass matrix, 1 evaluations : 0.017242
+   o Solution parametric gradient, 61907 evaluations : 29.6189
+   o Solution parametric gradient on faces, 61907 evaluations : 208.728(177.292 before and 31.4217 after communication, 0.0136058 finalising)
+   o Boundary imposed field Inlet, 1 evaluations : 0.0152931
+   o Boundary imposed field Outlet, 1 evaluations : 0.0202
+   o Boundary imposed field Wall, 1 evaluations : 0.0151579
+   o Face lift operators, 1 evaluations : 0.0162451
