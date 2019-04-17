@@ -1,0 +1,181 @@
+GlobalProblem {
+  Files {
+    Input {
+      Mesh {
+        File = "RefineMesh2.msh";
+        FileType = Gmsh;
+        NumberOfPartitions = 8;
+      }
+    }
+    Output {
+      Prefix = "Output/";
+      Performance {
+        CPULogFile = "log.cpu";
+        MemoryLogFile = "log.mem";
+      }
+      IntermediateSolution {
+        File = "intermediate.bin";
+        Frequency = 500;
+      }
+    }
+  }
+  Topology {
+    Domain = "Solution" {
+      Regions = [1:4];
+    }
+    Boundary = "Inlet" {
+      Faces = [3];
+    }
+    Boundary = "Outlet" {
+      Faces = [16:18 15 6:9];
+    }
+    Boundary = "Wall" {
+      Faces = [1];
+    }
+  }
+  TimeDependence {
+    Type = Steady;
+    TimeStep = 1e-08;
+    NumberOfTimeSteps = 800000;
+    TimeStepperStrategy = TabulatedTimeStep;
+    TabulatedTimeStep {
+      TimeSteps = [1.000000e-10 1.000000e-08 1.000000e-06 1.000000e-04];
+      FinalTimeForTimeSteps = [1.000000e-07 1.000000e-04 1.000000e-01 1.000000e+01];
+    }
+  }
+  Restart {
+    Type = CheckPoint;
+    Iteration = 2500;
+  }
+  Convergence {
+    NumberOfIterations = 1000000;
+    Tolerance = 1e-16;
+  }
+}
+DGFluidProblem {
+  Domains = ["Solution"];
+  Physics {
+    Properties {
+      FluidType = Compressible;
+      Compressible {
+        GoverningEquations = NavierStokes;
+        ConstitutiveLaw = IdealGas;
+        EntropyFix = 1e-06;
+        IdealGas {
+          Gamma = 1.4;
+          R = 287.1;
+          RiemannSolver = LaxFriedrichs;
+          ViscosityLaw = Newtonian;
+        }
+      }
+    }
+    BoundaryConditions {
+      FreeStream {
+        Boundaries = ["Inlet"];
+        Frame = Relative;
+        Type = PrimitiveVariables;
+        PrimitiveVariables {
+          PolarAxis = "None";
+          File = "";
+          Pressure = "370.7";
+          Temperature = "63.73";
+          Velocity = ["0.0" "-1299.09"];
+        }
+      }
+      SolidWall {
+        Boundaries = ["Wall"];
+        Momentum = Stick;
+        Thermal = Temperature;
+        Frame = Relative;
+        PolarAxis = "None";
+        Temperature = "300";
+      }
+      PressureOutlet {
+        Boundaries = ["Outlet"];
+        PolarAxis = "None";
+        File = "";
+        Pressure = "370.7";
+      }
+    }
+    InitialConditions {
+      FluidType = PrimitiveVariables;
+      PrimitiveVariables {
+        Pressure = "370.7";
+        Temperature = "63.73";
+        Velocity = ["0.0" "-1299.09"];
+      }
+    }
+    NonDimensionalisation {
+      FluidType = Compressible;
+      Compressible {
+        Pressure = 370.7;
+        Temperature = 63.73;
+      }
+    }
+  }
+  Numerics {
+    SpatialDiscretisation {
+      Formulation = DGM;
+      Interpolation {
+        FunctionSpace = LagrangianEquidistant;
+        InitialSolutionProjection = Lagrange;
+        Order = 0;
+      }
+      DiffusiveTerms {
+        Discretisation = BR2;
+        PenaltyParameter {
+          Value = Shahbazi;
+        }
+        BR2 {
+          FixedCoefficient = 1;
+          Coefficient = 1;
+        }
+      }
+    }
+    TemporalDiscretisation {
+      Strategy = Implicit;
+      Implicit {
+        Type = BDF2;
+        NumberOfIterations = 5;
+        NonlinearTolerance = 0.0001;
+      }
+    }
+    NonLinearSolver {
+      Method = Newton;
+      CFLStrategy {
+        CFLMinimum = 0.1;
+        CFLMaximum = 100000;
+        CFLExponent = 0.7;
+      }
+      Newton {
+        LinearSolver = GMRES;
+        GMRES {
+          Tolerance = 1e-16;
+          Iterations = 200;
+          SubSpaceSize = 200;
+          Preconditioner {
+            Type = ILU;
+            ILU {
+              Fill = 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  Outputs {
+    FieldExports {
+      Domain {
+        FileNameBase = "flux";
+        Frequency = -100;
+        Type = Instantaneous;
+        Domains = ["Solution"];
+        Data = [Temperature Pressure Velocity AbsoluteMachNumber Density Entropy];
+      }
+      Boundary {
+        Boundaries = ["Wall"];
+        Data = [Temperature Pressure Density ViscousDissipation Entropy Velocity AbsoluteMachNumber];
+      }
+    }
+  }
+}
