@@ -1,0 +1,102 @@
+Argo svn 0.1.6568MP
+
+--------------------------------------------------------------------------
+DGM discretisation for '2D Perfect Gas with Lax-Friedrichs flux' in ''
+--------------------------------------------------------------------------
+
+   o Conservation law : 2D Perfect Gas with Lax-Friedrichs flux
+
+   o Frame of reference : Stationary frame Stationary
+
+   o Boundary conditions : 
+
+      - Inlet : FreeStream - PrimitiveVariables
+      - Outlet : PressureOutlet
+      - Wall : StickWall - Temperature
+
+
+   o Residual operators :
+
+     - Optimised Volume
+     - Optimised Interface
+     - Boundary conditions
+
+
+   o Associated auxiliary processors : 
+
+     - Linearised dependencies : 
+       * Solution parametric gradient
+       * Solution parametric gradient on faces
+
+
+   o Element types 
+
+     - 1024 quadrangle (p=0) : 1 functions, 1 integration points, integration accuracy 1
+
+   o Interface types 
+
+     - 1984 edge (p=0) : 1 functions, 1 integration points, integration accuracy 1
+
+Newton iterations  took 2626.08 seconds 
+
+Time spent in discretisation : 
+
+  Total time spent in constructing the residual 851.47 for 63760 evaluations 
+  Individual contributions:
+
+   o Update of residual terms: 319.792s before and 45.4758s after exchange
+     - Optimised Volume: 55.3201s
+     - Optimised Interface: 248.445s
+     - Boundary conditions: 61.419s
+   o Linearised dependencies: 187.675s before and 42.9243s after exchange, 4.38955s cleaning
+   o Premultiplication with mass matrix: 38.1987 s
+   o Sending the solution:     0.486249 s
+   o Waiting for the solution: 0.00326037 s
+   o Time spent in exchanging the residual (86874): 0.282098 s
+
+  Total time spent in constructing the Jacobian 287.447, 10161 evaluations 
+  Individual contributions  :
+
+   o Optimised Volume : 37.7709 s, 0.0705211 GFlops
+   o Optimised Interface : 179.04 s, 0.0250493 GFlops
+   o Boundary conditions : 19.9819 s, 0.0192664 GFlops
+   o Time spent in premultiplying with the mass matrix : 33.0573 s
+   o Time spent in exchanging the solution (10161 ) - total 0.0289369, average:2.84784e-06 s
+
+Time spent in ksp solver : 
+
+  Krylov subspace solver took 1843.63 seconds for 10161 solves 
+
+  o Cost for the preconditioner : 
+
+    Time spent in ILU preconditioner = 577.138 seconds for 10161 initialisations and 306.884 for 43437 applications:
+
+       o 10161 (I)LU decompositions : 270.049, pivot inversion = 175.499s, 0.0101184 GFlops, row reduction : 94.5507, 0.159071 GFlops 
+       o 43437 LU solve  : 112.28, forward substitution : 48.8347 s, 0.10478GFlops, backward substitution : 63.4454 s, 0.105708GFlops 
+       o Copy from external vector 92.6699
+       o Copy to external vector 92.6699
+
+      Variables were renumbered to optimise bandwidth (Reverse Cuthill-McKee)
+      
+  o Cost for the matrix-vector product : 
+
+    Time spent in matrix-vector product by one-sided finite differences is 1096.56 seconds for 10161 initialisations and 33276 applications
+
+
+CPU statistics for aux-processors
+
+   o Element inscribed radius, 1 evaluations : 0.00018692
+   o Element circumscribed radius, 1 evaluations : 0.000129938
+   o Faces minimum of inscribed radii, 1 evaluations : 9.39369e-05
+   o Face Jacobian and normal, 1 evaluations : 0.00528812
+   o Element Jacobian determinant and inverse, 1 evaluations : 0.00115299
+   o Face point coordinates, 1 evaluations : 0.00120902
+   o Element Jacobian data in faces, 1 evaluations : 0.0989649
+   o Element quadrature point coordinates, 1 evaluations : 0.0481429
+   o Element inverse mass matrix, 1 evaluations : 0.00983095
+   o Solution parametric gradient, 63761 evaluations : 70.1807
+   o Solution parametric gradient on faces, 63761 evaluations : 144.774(106.88 before and 37.8851 after communication, 0.00907445 finalising)
+   o Boundary imposed field Inlet, 1 evaluations : 0.00763798
+   o Boundary imposed field Outlet, 1 evaluations : 0.00767303
+   o Boundary imposed field Wall, 1 evaluations : 0.00763416
+   o Face lift operators, 1 evaluations : 0.0111489

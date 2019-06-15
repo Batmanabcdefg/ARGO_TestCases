@@ -1,0 +1,102 @@
+Argo svn 0.1.6568MP
+
+--------------------------------------------------------------------------
+DGM discretisation for '2D Perfect Gas with Lax-Friedrichs flux' in ''
+--------------------------------------------------------------------------
+
+   o Conservation law : 2D Perfect Gas with Lax-Friedrichs flux
+
+   o Frame of reference : Stationary frame Stationary
+
+   o Boundary conditions : 
+
+      - Inlet : FreeStream - PrimitiveVariables
+      - Outlet : PressureOutlet
+      - Wall : StickWall - Temperature
+
+
+   o Residual operators :
+
+     - Optimised Volume
+     - Optimised Interface
+     - Boundary conditions
+
+
+   o Associated auxiliary processors : 
+
+     - Linearised dependencies : 
+       * Solution parametric gradient
+       * Solution parametric gradient on faces
+
+
+   o Element types 
+
+     - 256 quadrangle (p=0) : 1 functions, 1 integration points, integration accuracy 1
+
+   o Interface types 
+
+     - 480 edge (p=0) : 1 functions, 1 integration points, integration accuracy 1
+
+Newton iterations  took 1062.81 seconds 
+
+Time spent in discretisation : 
+
+  Total time spent in constructing the residual 360.997 for 41315 evaluations 
+  Individual contributions:
+
+   o Update of residual terms: 100.896s before and 14.3965s after exchange
+     - Optimised Volume: 28.2086s
+     - Optimised Interface: 67.047s
+     - Boundary conditions: 19.9992s
+   o Linearised dependencies: 93.9905s before and 15.0371s after exchange, 2.59792s cleaning
+   o Premultiplication with mass matrix: 9.2903 s
+   o Sending the solution:     0.228968 s
+   o Waiting for the solution: 0.00199008 s
+   o Time spent in exchanging the residual (56076): 0.150524 s
+
+  Total time spent in constructing the Jacobian 38.1645, 6638 evaluations 
+  Individual contributions  :
+
+   o Optimised Volume : 4.12282 s, 0.105517 GFlops
+   o Optimised Interface : 19.5061 s, 0.0390015 GFlops
+   o Boundary conditions : 5.16117 s, 0.0243647 GFlops
+   o Time spent in premultiplying with the mass matrix : 7.21748 s
+   o Time spent in exchanging the solution (6638 ) - total 0.0139861, average:2.10698e-06 s
+
+Time spent in ksp solver : 
+
+  Krylov subspace solver took 939.072 seconds for 6638 solves 
+
+  o Cost for the preconditioner : 
+
+    Time spent in ILU preconditioner = 98.9206 seconds for 6638 initialisations and 119.206 for 28038 applications:
+
+       o 6638 (I)LU decompositions : 57.3464, pivot inversion = 42.7238s, 0.00678822 GFlops, row reduction : 14.6225, 0.157817 GFlops 
+       o 28038 LU solve  : 13.6928, forward substitution : 7.00299 s, 0.112905GFlops, backward substitution : 6.68984 s, 0.152222GFlops 
+       o Copy from external vector 52.04
+       o Copy to external vector 52.04
+
+      Variables were renumbered to optimise bandwidth (Reverse Cuthill-McKee)
+      
+  o Cost for the matrix-vector product : 
+
+    Time spent in matrix-vector product by one-sided finite differences is 604.709 seconds for 6638 initialisations and 21400 applications
+
+
+CPU statistics for aux-processors
+
+   o Element inscribed radius, 1 evaluations : 0.0189211
+   o Element circumscribed radius, 1 evaluations : 0.00184989
+   o Faces minimum of inscribed radii, 1 evaluations : 3.48091e-05
+   o Face Jacobian and normal, 1 evaluations : 0.00139403
+   o Element Jacobian determinant and inverse, 1 evaluations : 0.000301838
+   o Face point coordinates, 1 evaluations : 0.000323057
+   o Element Jacobian data in faces, 1 evaluations : 0.0126529
+   o Element quadrature point coordinates, 1 evaluations : 0.0302582
+   o Element inverse mass matrix, 1 evaluations : 0.0121291
+   o Solution parametric gradient, 41316 evaluations : 43.0475
+   o Solution parametric gradient on faces, 41316 evaluations : 57.1656(45.0713 before and 12.0899 after communication, 0.00439906 finalising)
+   o Boundary imposed field Inlet, 1 evaluations : 0.016953
+   o Boundary imposed field Outlet, 1 evaluations : 0.012588
+   o Boundary imposed field Wall, 1 evaluations : 0.0125182
+   o Face lift operators, 1 evaluations : 0.019268

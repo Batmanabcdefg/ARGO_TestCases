@@ -1,0 +1,113 @@
+Argo svn 0.1.6568MP
+
+--------------------------------------------------------------------------
+DGM discretisation for '2D Perfect Gas with Lax-Friedrichs flux' in ''
+--------------------------------------------------------------------------
+
+   o Conservation law : 2D Perfect Gas with Lax-Friedrichs flux
+
+   o Frame of reference : Stationary frame Stationary
+
+   o Boundary conditions : 
+
+      - Inlet : FreeStream - PrimitiveVariables
+      - Outlet : PressureOutlet
+      - Wall : StickWall - Temperature
+
+
+   o Residual operators :
+
+     - Optimised Volume
+     - Optimised Interface
+     - Boundary conditions
+
+
+   o Associated auxiliary processors : 
+
+     - Linearised dependencies : 
+       * Solution parametric gradient
+       * Solution parametric gradient on faces
+
+     - Non-linearised dependencies : 
+       * Artificial viscosity coefficients of the elements
+
+
+   o Element types 
+
+     - 82 quadrangle (p=3) : 16 functions, 16 integration points, integration accuracy 7
+     - 324 quadrangle (p=2) : 9 functions, 9 integration points, integration accuracy 5
+     - 58 quadrangle (p=1) : 4 functions, 4 integration points, integration accuracy 3
+     - 203 quadrangle (p=0) : 1 functions, 1 integration points, integration accuracy 1
+
+   o Interface types 
+
+     - 162 edge (p=3) : 4 functions, 4 integration points, integration accuracy 6
+     - 636 edge (p=2) : 3 functions, 3 integration points, integration accuracy 4
+     - 114 edge (p=1) : 2 functions, 2 integration points, integration accuracy 2
+     - 370 edge (p=0) : 1 functions, 1 integration points, integration accuracy 1
+
+Newton iterations  took 3241.32 seconds 
+
+Time spent in discretisation : 
+
+  Total time spent in constructing the residual 953.73 for 34582 evaluations 
+  Individual contributions:
+
+   o Update of residual terms: 340.984s before and 66.5771s after exchange
+     - Optimised Volume: 83.4233s
+     - Optimised Interface: 245.204s
+     - Boundary conditions: 78.8678s
+   o Linearised dependencies: 190.792s before and 57.1772s after exchange, 2.61068s cleaning
+   o Premultiplication with mass matrix: 45.41 s
+   o Sending the solution:     0.440176 s
+   o Waiting for the solution: 0.00182915 s
+   o Time spent in exchanging the residual (41618): 0.147153 s
+
+  Total time spent in constructing the Jacobian 452.782, 6891 evaluations 
+  Individual contributions  :
+
+   o Optimised Volume : 103.874 s, 9.78189 GFlops
+   o Optimised Interface : 230.384 s, 0.46054 GFlops
+   o Boundary conditions : 18.7347 s, 1.10831 GFlops
+   o Time spent in premultiplying with the mass matrix : 45.3657 s
+   o Time spent in exchanging the solution (6891 ) - total 0.0214677, average:3.11532e-06 s
+
+Time spent in ksp solver : 
+
+  Krylov subspace solver took 1081.88 seconds for 6891 solves 
+
+  o Cost for the preconditioner : 
+
+    Time spent in ILU preconditioner = 1938.97 seconds for 6891 initialisations and 274.097 for 20809 applications:
+
+       o 6891 (I)LU decompositions : 1476.7, pivot inversion = 726.292s, 0.932673 GFlops, row reduction : 750.403, 6.5149 GFlops 
+       o 20809 LU solve  : 143.814, forward substitution : 59.8157 s, 1.48722GFlops, backward substitution : 83.9987 s, 1.35056GFlops 
+       o Copy from external vector 53.71
+       o Copy to external vector 53.71
+
+      Variables were renumbered to optimise bandwidth (Reverse Cuthill-McKee)
+      
+  o Cost for the matrix-vector product : 
+
+    Time spent in matrix-vector product by one-sided finite differences is 403.338 seconds for 6891 initialisations and 13918 applications
+
+
+CPU statistics for aux-processors
+
+   o Element inscribed radius, 1 evaluations : 0.0360551
+   o Element circumscribed radius, 1 evaluations : 0.0116491
+   o Faces minimum of inscribed radii, 1 evaluations : 0.00388694
+   o Face Jacobian and normal, 1 evaluations : 0.0182889
+   o Element Jacobian determinant and inverse, 1 evaluations : 0.00970912
+   o Face point coordinates, 1 evaluations : 0.014703
+   o Element Jacobian data in faces, 1 evaluations : 0.0547121
+   o Element quadrature point coordinates, 1 evaluations : 0.094032
+   o Element inverse mass matrix, 1 evaluations : 0.0420649
+   o Solution parametric gradient, 34583 evaluations : 85.9646
+   o Solution parametric gradient on faces, 34583 evaluations : 152.089(98.1798 before and 53.902 after communication, 0.0072794 finalising)
+   o Boundary imposed field Inlet, 1 evaluations : 0.039324
+   o Boundary imposed field Outlet, 1 evaluations : 0.0539799
+   o Boundary imposed field Wall, 1 evaluations : 0.0370061
+   o Element characteristic length, 1 evaluations : 0.0114961
+   o Face lift operators, 1 evaluations : 0.013829
+   o Artificial viscosity coefficients of the elements, 6882 evaluations : 231.403
